@@ -22,7 +22,7 @@ internal partial class FS
 
     internal static Dictionary<string, List<string>> GetDictionaryByFileNameWithExtension(List<string> files)
     {
-        Dictionary<string, List<string>> result = new Dictionary<string, List<string>>();
+        var result = new Dictionary<string, List<string>>();
         foreach (var item in files)
         {
             string filename = Path.GetFileName(item);
@@ -89,11 +89,6 @@ internal partial class FS
         return WithEndSlash(ref path);
     }
 
-    /// <summary>
-    ///     Usage: Exceptions.FileWasntFoundInDirectory
-    /// </summary>
-    /// <param name="path">Path to ensure ends with a backslash.</param>
-    /// <returns>Path with trailing backslash.</returns>
     internal static string WithEndSlash(ref string path)
     {
         if (path != string.Empty)
@@ -122,26 +117,18 @@ internal partial class FS
         return fileName + textToInsert + extension;
     }
 
-    /// <summary>
-    /// No direct edit
-    /// </summary>
-    /// <param name="filePaths">Array of file paths.</param>
-    /// <returns>List containing only file names.</returns>
     internal static List<string> OnlyNamesNoDirectEdit(String[] filePaths)
     {
         var list = filePaths.ToList();
         return OnlyNamesNoDirectEdit(list);
     }
 
-    /// <summary>
-    /// No direct edit
-    /// Returns with extension
-    /// POZOR: Na rozdíl od stejné metody v sunamo tato metoda vrací úplně nové pole a nemodifikuje A1
-    /// </summary>
-    /// <param name = "filePaths">List of file paths.</param>
+    // No direct edit
+    // Returns with extension
+    // POZOR: Na rozdíl od stejné metody v sunamo tato metoda vrací úplně nové pole a nemodifikuje A1
     internal static List<string> OnlyNamesNoDirectEdit(List<string> filePaths)
     {
-        List<string> fileNames = new List<string>(filePaths.Count);
+        var fileNames = new List<string>(filePaths.Count);
         for (int i = 0; i < filePaths.Count; i++)
         {
             fileNames.Add(Path.GetFileName(filePaths[i]));

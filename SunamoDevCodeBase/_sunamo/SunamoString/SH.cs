@@ -52,10 +52,8 @@ internal class SH
         return lines[lineIndex];
     }
 
-    /// <summary>
-    /// EN: Return index, therefore x-1
-    /// CZ: Vrátí index, proto x-1
-    /// </summary>
+    // EN: Return index, therefore x-1
+    // CZ: Vrátí index, proto x-1
     internal static int GetLineIndexFromCharIndex(string text, int characterPosition)
     {
         var lineNumber = text.Take(characterPosition).Count(character => character == '\n') + 1;
@@ -108,7 +106,7 @@ internal class SH
 
     internal static string WhiteSpaceFromStart(string text)
     {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder stringBuilder = new();
         foreach (var item in text)
         {
             if (char.IsWhiteSpace(item))
@@ -196,7 +194,7 @@ internal class SH
         pattern = Regex.Escape(pattern);
         pattern = pattern.Replace(escapedSingle, ".");
         pattern = "^" + pattern.Replace(escapedMultiple, ".*") + "$";
-        Regex regex = new Regex(pattern);
+        Regex regex = new(pattern);
         return regex.IsMatch(text);
     }
 
@@ -237,15 +235,15 @@ internal class SH
     internal static List<int> ReturnOccurencesOfString(string text, string searchText)
     {
 
-        List<int> results = new List<int>();
+        List<int> results = new();
         for (int index = 0; index < (text.Length - searchText.Length) + 1; index++)
         {
             var substring = text.Substring(index, searchText.Length);
             ////////DebugLogger.Instance.WriteLine(substring);
             // non-breaking space. &nbsp; code 160
             // 32 space
-            char firstChar = substring[0];
-            char searchFirstChar = searchText[0];
+            _ = substring[0];
+            _ = searchText[0];
             if (substring == "")
             {
             }

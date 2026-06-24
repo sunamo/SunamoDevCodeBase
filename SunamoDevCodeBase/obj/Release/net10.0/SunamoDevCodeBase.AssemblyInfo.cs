@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Base types, _sunamo utilities and _public interfaces extracted from SunamoDevCode" +
     "."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("26.6.21.1")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("26.6.21.1+763e14096e90d3fb7374ad62922f39ce50de7e4f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("26.6.21.1+46be404c678ea738b147f3875ab6568b7bb57289")]
 [assembly: System.Reflection.AssemblyProductAttribute("SunamoDevCodeBase")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SunamoDevCodeBase")]
 [assembly: System.Reflection.AssemblyVersionAttribute("26.6.21.1")]

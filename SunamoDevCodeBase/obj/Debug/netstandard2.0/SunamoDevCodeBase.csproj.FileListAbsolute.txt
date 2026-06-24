@@ -1,0 +1,13 @@
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\bin\Debug\netstandard2.0\SunamoDevCodeBase.deps.json
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\bin\Debug\netstandard2.0\SunamoDevCodeBase.dll
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\bin\Debug\netstandard2.0\SunamoDevCodeBase.pdb
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\bin\Debug\netstandard2.0\SunamoDevCodeBase.xml
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\obj\Debug\netstandard2.0\SunamoDevCodeBase.csproj.AssemblyReference.cache
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\obj\Debug\netstandard2.0\SunamoDevCodeBase.GeneratedMSBuildEditorConfig.editorconfig
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\obj\Debug\netstandard2.0\SunamoDevCodeBase.AssemblyInfoInputs.cache
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\obj\Debug\netstandard2.0\SunamoDevCodeBase.AssemblyInfo.cs
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\obj\Debug\netstandard2.0\SunamoDevCodeBase.csproj.CoreCompileInputs.cache
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\obj\Debug\netstandard2.0\SunamoDevCodeBase.sourcelink.json
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\obj\Debug\netstandard2.0\SunamoDevCodeBase.dll
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\obj\Debug\netstandard2.0\SunamoDevCodeBase.xml
+E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\obj\Debug\netstandard2.0\SunamoDevCodeBase.pdb

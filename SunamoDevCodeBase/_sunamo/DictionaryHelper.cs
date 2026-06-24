@@ -50,20 +50,6 @@ internal class DictionaryHelper
     }
 
     #region AddOrCreate když key i value není list
-    /// <summary>
-    ///     A3 is inner type of collection entries
-    ///     dictS => is comparing with string
-    ///     As inner must be List, not IList etc.
-    ///     From outside is not possible as inner use other class based on IList
-    /// </summary>
-    /// <typeparam name="Key">Type of dictionary key</typeparam>
-    /// <typeparam name="Value">Type of dictionary value</typeparam>
-    /// <typeparam name="ColType">Type of collection entries for comparison</typeparam>
-    /// <param name="dict">Dictionary to add or update</param>
-    /// <param name="key">Key to add or update</param>
-    /// <param name="value">Value to add</param>
-    /// <param name="withoutDuplicitiesInValue">Whether to avoid duplicate values</param>
-    /// <param name="dictS">Optional string comparison dictionary</param>
     internal static void AddOrCreate<Key, Value, ColType>(IDictionary<Key, List<Value>> dict, Key key, Value value,
     bool withoutDuplicitiesInValue = false, Dictionary<Key, List<string>>? dictS = null) where Key : notnull
     {
@@ -169,17 +155,8 @@ internal class DictionaryHelper
         }
     }
 
-    /// <summary>
-    ///     Pokud A1 bude obsahovat skupinu pod názvem A2, vložím do této skupiny prvek A3
-    ///     Jinak do A1 vytvořím novou skupinu s klíčem A2 s hodnotou A3
-    /// </summary>
-    /// <typeparam name="Key">Type of dictionary key</typeparam>
-    /// <typeparam name="Value">Type of dictionary value</typeparam>
-    /// <param name="dictionary">Dictionary to add or update</param>
-    /// <param name="key">Key to add or update</param>
-    /// <param name="value">Value to add</param>
-    /// <param name="withoutDuplicitiesInValue">Whether to avoid duplicate values</param>
-    /// <param name="dictS">Optional string comparison dictionary</param>
+    // Pokud A1 bude obsahovat skupinu pod názvem A2, vložím do této skupiny prvek A3
+    // Jinak do A1 vytvořím novou skupinu s klíčem A2 s hodnotou A3
     internal static void AddOrCreate<Key, Value>(IDictionary<Key, List<Value>> dictionary, Key key, Value value,
     bool withoutDuplicitiesInValue = false, Dictionary<Key, List<string>>? dictS = null) where Key : notnull
     {

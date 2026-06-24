@@ -1,8 +1,5 @@
 namespace SunamoDevCode.Helpers;
 
-/// <summary>
-/// Helper class for TypeScript code generation and type handling
-/// </summary>
 public class TypeScriptHelper
 {
     private static Dictionary<string, string> ___types = new Dictionary<string, string>();
@@ -16,11 +13,6 @@ public class TypeScriptHelper
         ___defaultValueForType.Add("Date", "dt");
     }
 
-    /// <summary>
-    /// Gets mapped type name or returns original if not mapped
-    /// </summary>
-    /// <param name="typeName">Type name to lookup</param>
-    /// <returns>Mapped type name or original</returns>
     public static string Type(string typeName)
     {
         if (___types.ContainsKey(typeName))
@@ -31,13 +23,6 @@ public class TypeScriptHelper
         return typeName;
     }
 
-    /// <summary>
-    /// Gets default value for TypeScript type
-    /// </summary>
-    /// <param name="typeName">TypeScript type name</param>
-    /// <param name="prefixIfString">Prefix to add for string ___types</param>
-    /// <param name="nameArgMethod">Argument method name to append</param>
-    /// <returns>Default value as string</returns>
     public static string DefaultValueForType(string typeName, string prefixIfString = "", /*bool isArgNumber = false,*/ string nameArgMethod = "")
     {
         if (typeName.EndsWith("[]"))
@@ -72,12 +57,7 @@ public class TypeScriptHelper
     }
 
 
-    /// <summary>
-    /// Splits property declarations into names and ___types
-    /// Do not use for interfaces unless explicitly allowed to have optional (?) modifiers
-    /// </summary>
-    /// <param name="list">List of property declarations</param>
-    /// <returns>Tuple of (names list, ___types list)</returns>
+    // Do not use for interfaces unless explicitly allowed to have optional (?) modifiers
     public static Tuple<List<string>, List<string>> GetNamesAndTypes(List<string> list)
     {
         var __typesList = list.ToList();

@@ -12,8 +12,8 @@ internal partial class XHelper
 
     internal static List<XElement> GetElementsOfNameWithAttrWorker(System.Xml.Linq.XElement xElement, string tag, string attr, string value /*, bool enoughIsContainsAttribute, bool caseSensitive*/)
     {
-        List<XElement> vr = new List<XElement>();
-        List<XElement> e = XHelper.GetElementsOfNameRecursive(xElement, tag);
+        var vr = new List<XElement>();
+        var e = XHelper.GetElementsOfNameRecursive(xElement, tag);
         foreach (XElement item in e)
         {
             var attrValue = XHelper.Attr(item, attr);
@@ -28,7 +28,7 @@ internal partial class XHelper
 
     internal static List<XElement> GetElementsOfNameRecursive(XElement node, string nazev)
     {
-        List<XElement> vr = new List<XElement>();
+        var vr = new List<XElement>();
         if (nazev.Contains(":"))
         {
             var(p, z) = SH.GetPartsByLocationNoOut(nazev, ':');
@@ -59,7 +59,7 @@ internal partial class XHelper
     {
         foreach (string item in nsmgr)
         {
-            // Jak� je typ item, at nemus�m pou��vat slovn�k
+            // Jaky je typ item, at nemusim pouzivat slovnik
             var value = nsmgr.LookupNamespace(item);
             if (!ns.ContainsKey(item))
             {
@@ -104,7 +104,7 @@ internal partial class XHelper
 
     internal static string? Attr(XElement item, string attr)
     {
-        XAttribute? xa = item.Attribute(XName.Get(attr));
+        var xa = item.Attribute(XName.Get(attr));
         if (xa != null)
         {
             return xa.Value;
@@ -116,7 +116,7 @@ internal partial class XHelper
     internal static XElement MakeAllElementsWithDefaultNs(XElement settings)
     {
         var ns2 = XHelper.ns[string.Empty];
-        List<object> toInsert = new List<object>();
+        var toInsert = new List<object>();
         // shift ALL elements in the settings document into the target namespace
         foreach (XElement e in settings.DescendantsAndSelf())
         {
@@ -153,7 +153,7 @@ internal partial class XHelper
 
     internal static List<XElement> GetElementsOfName(XElement node, string nazev)
     {
-        List<XElement> result = new List<XElement>();
+        var result = new List<XElement>();
         if (nazev.Contains(":"))
         {
             foreach (XElement item in node.Elements())
@@ -226,19 +226,13 @@ internal partial class XHelper
     }
 
     internal static 
-#if ASYNC
     async Task<XDocument>
-#else
-    XDocument 
-#endif
     CreateXDocument(string contentOrFn)
     {
         if (File.Exists(contentOrFn))
         {
             contentOrFn = 
-#if ASYNC
             await
-#endif
             FileAsync.ReadAllTextAsync(contentOrFn);
         }
 

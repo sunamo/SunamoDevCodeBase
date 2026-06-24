@@ -1,14 +1,7 @@
 namespace SunamoDevCode._sunamo.SunamoValues.All;
 
-/// <summary>
-/// Must be in shared due to HtmlTextWriterTag in System.Web
-/// All is lower
-/// </summary>
 internal class AllHtmlTags
 {
-    /// <summary>
-    /// Sorted from longest to shortest due to comparing and finding right string
-    /// </summary>
     internal static List<string>? list = null;
     static List<string>? withLeftArrow;
     internal static List<string> WithLeftArrow
@@ -18,7 +11,7 @@ internal class AllHtmlTags
             if (withLeftArrow == null)
             {
                 Initialize();
-                withLeftArrow = new List<string>(list!.Count);
+                withLeftArrow = new(list!.Count);
                 for (int i = 0; i < list!.Count; i++)
                 {
                     withLeftArrow.Add("<" + list![i] + " ");
@@ -31,7 +24,7 @@ internal class AllHtmlTags
     {
         if (list == null)
         {
-            list = new List<string>();
+            list = new();
             foreach (var item in Enum.GetNames(typeof(HtmlTextWriterTag)))
             {
                 list.Add(item.ToLower());
