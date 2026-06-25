@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "SunamoDevCodeBase/26.6.25.3": {
+      "SunamoDevCodeBase/26.6.25.4": {
         "dependencies": {
           "CaseDotNet.Extensions": "0.2.46",
           "Diacritics": "4.1.4",
@@ -162,7 +162,7 @@
     }
   },
   "libraries": {
-    "SunamoDevCodeBase/26.6.25.3": {
+    "SunamoDevCodeBase/26.6.25.4": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
