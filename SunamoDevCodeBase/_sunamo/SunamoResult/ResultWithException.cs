@@ -1,26 +1,26 @@
 namespace SunamoDevCode._sunamo.SunamoResult;
 
-public class ResultWithException<T>
+internal class ResultWithException<T>
 {
-    public T Data { get; set; } = default!;
-    public string? Exc { get; set; }
+    internal T Data { get; set; } = default!;
+    internal string? Exc { get; set; }
 
-    public ResultWithException(T data)
+    internal ResultWithException(T data)
     {
         Data = data;
     }
 
-    public ResultWithException(string exc)
+    internal ResultWithException(string exc)
     {
         this.Exc = exc;
     }
 
-    public ResultWithException(Exception exc)
+    internal ResultWithException(Exception exc)
     {
         this.Exc = exc.Message;
     }
 
-    public ResultWithException()
+    internal ResultWithException()
     {
     }
 }

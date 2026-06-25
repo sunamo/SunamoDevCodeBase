@@ -1483,7 +1483,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "26.6.21.1",
+    "version": "26.6.25.2",
     "restore": {
       "projectUniqueName": "E:\\vs\\Projects\\PlatformIndependentNuGetPackages\\SunamoDevCodeBase\\SunamoDevCodeBase\\SunamoDevCodeBase.csproj",
       "projectName": "SunamoDevCodeBase",
@@ -1508,6 +1508,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\aktiv\\AppData\\Local\\Temp\\claude\\local-nuget": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://pkgs.dev.azure.com/sunamocz/_packaging/nuget_feed/nuget/v3/index.json": {}
       },

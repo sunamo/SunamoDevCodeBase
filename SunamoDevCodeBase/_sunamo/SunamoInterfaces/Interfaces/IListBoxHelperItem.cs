@@ -1,8 +1,6 @@
-// variables names: ok
 namespace SunamoDevCode._sunamo.SunamoInterfaces.Interfaces;
 
-
-public interface IListBoxHelperItem
+internal interface IListBoxHelperItem
 {
     string RunOne { get; }
     // For use in AllProjectsSearch - in LBH im working just with var and SolutionFolders are many.

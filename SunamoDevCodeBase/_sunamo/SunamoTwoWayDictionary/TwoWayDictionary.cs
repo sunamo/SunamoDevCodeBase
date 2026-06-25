@@ -1,6 +1,6 @@
 namespace SunamoDevCode._sunamo.SunamoTwoWayDictionary;
 
-public class TwoWayDictionary<T, U> where T : notnull where U : notnull
+internal class TwoWayDictionary<T, U> where T : notnull where U : notnull
 {
     internal Dictionary<T, U> FirstToSecond { get; set; } = null!;
     internal Dictionary<U, T> SecondToFirst { get; set; } = null!;
