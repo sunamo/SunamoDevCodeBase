@@ -11,8 +11,7 @@ internal partial class AllLists
             htmlEntitiesDict = new Dictionary<string, string>();
 #region Parsed from
             htmlEntitiesDict.Add("Tab", "  	  ");
-            htmlEntitiesDict.Add("NewLine", @"
-");
+            htmlEntitiesDict.Add("NewLine", "\n"); // explicit LF; the former verbatim multi-line literal depended on file line endings
             htmlEntitiesDict.Add("excl", "!");
             htmlEntitiesDict.Add("quot", "\"");
             htmlEntitiesDict.Add("QUOT", "\"");
