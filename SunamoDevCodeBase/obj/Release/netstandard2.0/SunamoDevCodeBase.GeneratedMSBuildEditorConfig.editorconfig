@@ -1,6 +1,6 @@
 is_global = true
 build_property.RootNamespace = SunamoDevCode
-build_property.ProjectDir = E:\vs\Projects\PlatformIndependentNuGetPackages\SunamoDevCodeBase\SunamoDevCodeBase\
+build_property.ProjectDir = E:\vs\Projects\PlatformIndependentNuGetPackages-claude\SunamoDevCodeBase\SunamoDevCodeBase\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTUseWindowsUIXamlProjections = false
