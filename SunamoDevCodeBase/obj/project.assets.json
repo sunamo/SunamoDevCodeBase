@@ -1482,7 +1482,7 @@
     "C:\\Users\\aktiv\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "26.9.28.6",
+    "version": "26.9.28.7",
     "restore": {
       "projectUniqueName": "E:\\vs\\Projects\\PlatformIndependentNuGetPackages-claude\\SunamoDevCodeBase\\SunamoDevCodeBase\\SunamoDevCodeBase.csproj",
       "projectName": "SunamoDevCodeBase",
