@@ -12,9 +12,9 @@ internal class AllHtmlTags
             {
                 Initialize();
                 withLeftArrow = new(list!.Count);
-                for (int i = 0; i < list!.Count; i++)
+                for (int index = 0; index < list!.Count; index++)
                 {
-                    withLeftArrow.Add("<" + list![i] + " ");
+                    withLeftArrow.Add("<" + list![index] + " ");
                 }
             }
             return withLeftArrow;

@@ -33,8 +33,8 @@ public class XmlLocalisationInterchangeFileFormatSunamo
         AllLists.InitHtmlEntitiesFullNames();
 
         var values = AllLists.htmlEntitiesFullNames.Values.ToList();
-        int i;
-        for (i = 0; i < values.Count; i++) values[i] = "_" + values[i];
+        int index;
+        for (index = 0; index < values.Count; index++) values[index] = "_" + values[index];
 
 
         foreach (var item in values) content = content.Replace(item, string.Empty);
@@ -50,7 +50,7 @@ public class XmlLocalisationInterchangeFileFormatSunamo
         async Task
         ReplaceInXlfManuallyEnteredPairsWithPrependXlfKeys(string xlfPath)
     {
-        int i;
+        int index;
 
         #region MyRegion
 
@@ -59,26 +59,26 @@ public class XmlLocalisationInterchangeFileFormatSunamo
         #endregion
 
         var splitResult = SHSplit.SplitFromReplaceManyFormatList(replacePairs!);
-        var to = splitResult.Item1;
+        var toItems = splitResult.Item1;
         var from = splitResult.Item2;
 
-        for (i = 0; i < from.Count; i++)
+        for (index = 0; index < from.Count; index++)
         {
-            from[i] = from[i].Replace("XlfKeys.", string.Empty);
-            to[i] = to[i].Replace("XlfKeys.", string.Empty);
+            from[index] = from[index].Replace("XlfKeys.", string.Empty);
+            toItems[index] = toItems[index].Replace("XlfKeys.", string.Empty);
         }
 
         from.Reverse();
-        to.Reverse();
+        toItems.Reverse();
 
 
         var content =
             await
                 FileAsync.ReadAllTextAsync(xlfPath);
 
-        for (i = from.Count - 1; i >= 0; i--)
+        for (index = from.Count - 1; index >= 0; index--)
             //Debug.WriteLine(i);
-            content = content.Replace(from[i], to[i]);
+            content = content.Replace(from[index], toItems[index]);
 
 
         await
@@ -105,13 +105,13 @@ public class XmlLocalisationInterchangeFileFormatSunamo
         async Task
         RemoveDuplicatedXlfKeysConsts()
     {
-        int i;
+        int index;
 
         var lines = SHGetLines.GetLines(
             await
                 FileAsync.ReadAllTextAsync(PathXlfKeys)).ToList();
 
-        for (i = 0; i < lines.Count; i++) lines[i] = lines[i].Trim();
+        for (index = 0; index < lines.Count; index++) lines[index] = lines[index].Trim();
 
         // only consts
         var consts = new List<string>();
@@ -121,12 +121,12 @@ public class XmlLocalisationInterchangeFileFormatSunamo
         var count = "const ";
 
 
-        i = 0;
+        index = 0;
 
 
         foreach (var item in lines)
         {
-            i++;
+            index++;
             if (item.Contains(count))
             {
                 // Get consts names
@@ -148,8 +148,8 @@ public class XmlLocalisationInterchangeFileFormatSunamo
         foreach (var item in foundedDuplicities)
             if (item != string.Empty)
             {
-                var dx = constsAllLines.IndexOf(item);
-                lines.RemoveAt(dx);
+                var duplicateIndex = constsAllLines.IndexOf(item);
+                lines.RemoveAt(duplicateIndex);
             }
 
         await FileAsync.WriteAllLinesAsync(PathXlfKeys, lines);
@@ -159,7 +159,7 @@ public class XmlLocalisationInterchangeFileFormatSunamo
         async Task
         RemoveDuplicatedXlfKeysConsts2()
     {
-        int y, i;
+        int sourceIndex, index;
         //AllLists.InitHtmlEntitiesDict();
         var path = PathXlfKeys;
         var sourceList = SHGetLines.GetLines(
@@ -173,13 +173,13 @@ public class XmlLocalisationInterchangeFileFormatSunamo
 
         //string t = CSharpHelper.GetConsts(sourceList, false);
         //var tl = SHGetLines.GetLines(t);
-        for (i = ls2.Count - 1; i >= 0; i--)
-            for (y = 0; y < sourceList.Count; y++)
-                if (sourceList[y].Contains(" " + ls2[i] + " "))
+        for (index = ls2.Count - 1; index >= 0; index--)
+            for (sourceIndex = 0; sourceIndex < sourceList.Count; sourceIndex++)
+                if (sourceList[sourceIndex].Contains(" " + ls2[index] + " "))
                 {
-                    ls2.RemoveAt(i);
-                    sourceList.RemoveAt(y);
-                    i = ls2.Count - 1;
+                    ls2.RemoveAt(index);
+                    sourceList.RemoveAt(sourceIndex);
+                    index = ls2.Count - 1;
                     break;
                 }
 

@@ -12,9 +12,9 @@ internal partial class CA
 
     internal static List<string> TrimEnd(List<string> list, params char[] toTrim)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            list[i] = list[i].TrimEnd(toTrim);
+            list[index] = list[index].TrimEnd(toTrim);
         }
 
         return list;
@@ -36,13 +36,13 @@ internal partial class CA
 
     internal static void RemoveEmptyLinesToFirstNonEmpty(List<string> lines)
     {
-        for (int i = 0; i < lines.Count; i++)
+        for (int index = 0; index < lines.Count; index++)
         {
-            var line = lines[i];
+            var line = lines[index];
             if (line.Trim() == string.Empty)
             {
-                lines.RemoveAt(i);
-                i--;
+                lines.RemoveAt(index);
+                index--;
             }
             else
             {
@@ -54,20 +54,20 @@ internal partial class CA
     internal static void RemoveLines(List<string> lines, List<int> lineIndexesToRemove)
     {
         lineIndexesToRemove.Sort();
-        for (int i = lineIndexesToRemove.Count - 1; i >= 0; i--)
+        for (int index = lineIndexesToRemove.Count - 1; index >= 0; index--)
         {
-            var lineIndex = lineIndexesToRemove[i];
+            var lineIndex = lineIndexesToRemove[index];
             lines.RemoveAt(lineIndex);
         }
     }
 
     internal static List<string> RemoveStringsEmpty2(List<string> list)
     {
-        for (int i = list.Count - 1; i >= 0; i--)
+        for (int index = list.Count - 1; index >= 0; index--)
         {
-            if (list[i].Trim() == string.Empty)
+            if (list[index].Trim() == string.Empty)
             {
-                list.RemoveAt(i);
+                list.RemoveAt(index);
             }
         }
 
@@ -79,9 +79,9 @@ internal partial class CA
 
     internal static List<string> WrapWith(List<string> list, string prefixText, string suffixText)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            list[i] = prefixText + list[i] + suffixText;
+            list[index] = prefixText + list[index] + suffixText;
         }
 
         return list;
@@ -89,12 +89,12 @@ internal partial class CA
 
     internal static List<string> EnsureBackslash(List<string> paths)
     {
-        for (int i = 0; i < paths.Count; i++)
+        for (int index = 0; index < paths.Count; index++)
         {
-            string path = paths[i];
+            string path = paths[index];
             if (path[path.Length - 1] != '\\')
             {
-                paths[i] = path + "\\";
+                paths[index] = path + "\\";
             }
         }
 
@@ -122,11 +122,11 @@ internal partial class CA
     internal static void RemoveWildcard(List<string> list, string mask)
     {
         //https://stackoverflow.com/a/15275806
-        for (int i = list.Count - 1; i >= 0; i--)
+        for (int index = list.Count - 1; index >= 0; index--)
         {
-            if (SH.MatchWildcard(list[i], mask))
+            if (SH.MatchWildcard(list[index], mask))
             {
-                list.RemoveAt(i);
+                list.RemoveAt(index);
             }
         }
     }
@@ -146,11 +146,11 @@ internal partial class CA
 
     internal static List<string> Prepend(string prefix, List<string> list)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            if (!list[i].StartsWith(prefix))
+            if (!list[index].StartsWith(prefix))
             {
-                list[i] = prefix + list[i];
+                list[index] = prefix + list[index];
             }
         }
 

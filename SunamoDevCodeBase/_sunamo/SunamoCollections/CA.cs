@@ -12,13 +12,13 @@ internal partial class CA
     internal static List<int> ReturnWhichContainsIndexes(IList<string> list, string term)
     {
         var result = new List<int>();
-        var i = 0;
+        var index = 0;
         if (list != null)
             foreach (var item in list)
             {
                 if (item.Contains(term))
-                    result.Add(i);
-                i++;
+                    result.Add(index);
+                index++;
             }
 
         return result;
@@ -27,12 +27,12 @@ internal partial class CA
     internal static List<int> ReturnWhichContainsIndexes(string text, IList<string> terms)
     {
         var result = new List<int>();
-        var i = 0;
+        var index = 0;
         foreach (var term in terms)
         {
             if (text.Contains(term))
-                result.Add(i);
-            i++;
+                result.Add(index);
+            index++;
         }
 
         return result;
@@ -49,16 +49,16 @@ internal partial class CA
 
     internal static List<string> StartingWith(string prefix, List<string> list)
     {
-        for (var i = list.Count - 1; i >= 0; i--)
-            if (!list[i].StartsWith(prefix))
-                list.RemoveAt(i);
+        for (var index = list.Count - 1; index >= 0; index--)
+            if (!list[index].StartsWith(prefix))
+                list.RemoveAt(index);
         return list;
     }
 
     internal static List<string> PostfixIfNotEnding(string prefix, List<string> list)
     {
-        for (var i = 0; i < list.Count; i++)
-            list[i] = prefix + list[i];
+        for (var index = 0; index < list.Count; index++)
+            list[index] = prefix + list[index];
         return list;
     }
 
@@ -78,9 +78,9 @@ internal partial class CA
 
     internal static List<string> RemoveStringsEmptyTrimBefore(List<string> list)
     {
-        for (var i = list.Count - 1; i >= 0; i--)
-            if (list[i].Trim() == string.Empty)
-                list.RemoveAt(i);
+        for (var index = list.Count - 1; index >= 0; index--)
+            if (list[index].Trim() == string.Empty)
+                list.RemoveAt(index);
         return list;
     }
 
@@ -96,19 +96,19 @@ internal partial class CA
 
     internal static void RemoveNullEmptyWs(List<string> list)
     {
-        for (int i = list.Count - 1; i >= 0; i--)
+        for (int index = list.Count - 1; index >= 0; index--)
         {
-            if (string.IsNullOrWhiteSpace(list[i]))
+            if (string.IsNullOrWhiteSpace(list[index]))
             {
-                list.RemoveAt(i);
+                list.RemoveAt(index);
             }
         }
     }
 
     internal static List<string> Trim(List<string> list)
     {
-        for (var i = 0; i < list.Count; i++)
-            list[i] = list[i].Trim();
+        for (var index = 0; index < list.Count; index++)
+            list[index] = list[index].Trim();
         return list;
     }
 
@@ -120,12 +120,12 @@ internal partial class CA
 
     internal static void TrimWhereIsOnlyWhitespace(List<string> list)
     {
-        for (int i = list.Count - 1; i >= 0; i--)
+        for (int index = list.Count - 1; index >= 0; index--)
         {
-            var item = list[i];
+            var item = list[index];
             if (string.IsNullOrWhiteSpace(item))
             {
-                list[i] = list[i].Trim();
+                list[index] = list[index].Trim();
             }
         }
     }
@@ -135,9 +135,9 @@ internal partial class CA
 
     internal static void Replace(List<string> list, string what, string replacement)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            list[i] = Replace(list[i], what, replacement);
+            list[index] = Replace(list[index], what, replacement);
         }
     }
 
@@ -158,9 +158,9 @@ internal partial class CA
 
         var(isNegated, actualPrefix) = IsNegationTuple(prefix);
         prefix = actualPrefix;
-        for (int i = list.Count - 1; i >= 0; i--)
+        for (int index = list.Count - 1; index >= 0; index--)
         {
-            var value = list[i];
+            var value = list[index];
             if (args.TrimBeforeFinding)
             {
                 value = value.Trim();
@@ -170,14 +170,14 @@ internal partial class CA
             {
                 if (!StartingWith(value, prefix, args.CaseSensitive))
                 {
-                    list.RemoveAt(i);
+                    list.RemoveAt(index);
                 }
             }
             else
             {
                 if (StartingWith(value, prefix, args.CaseSensitive))
                 {
-                    list.RemoveAt(i);
+                    list.RemoveAt(index);
                 }
             }
         }
@@ -222,21 +222,21 @@ internal partial class CA
                 throw new ArgumentNullException(nameof(wildcardIsMatch), "Wildcard match function is required when isWildcard is true");
             }
 
-            for (int i = list.Count - 1; i >= 0; i--)
+            for (int index = list.Count - 1; index >= 0; index--)
             {
-                if (wildcardIsMatch(list[i], pattern))
+                if (wildcardIsMatch(list[index], pattern))
                 {
-                    list.RemoveAt(i);
+                    list.RemoveAt(index);
                 }
             }
         }
         else
         {
-            for (int i = list.Count - 1; i >= 0; i--)
+            for (int itemIndex = list.Count - 1; itemIndex >= 0; itemIndex--)
             {
-                if (list[i].Contains(pattern))
+                if (list[itemIndex].Contains(pattern))
                 {
-                    list.RemoveAt(i);
+                    list.RemoveAt(itemIndex);
                 }
             }
         }

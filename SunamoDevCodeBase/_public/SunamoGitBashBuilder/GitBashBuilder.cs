@@ -77,10 +77,10 @@ public partial class GitBashBuilder : IGitBashBuilder
         AppendLine();
     }
 
-    public static string GitStatic(StringBuilder sb, string remainCommand)
+    public static string GitStatic(StringBuilder stringBuilder, string remainCommand)
     {
-        sb.Append("git " + remainCommand);
-        return sb.ToString();
+        stringBuilder.Append("git " + remainCommand);
+        return stringBuilder.ToString();
     }
 
     private void Git(string remainingCommand)
@@ -164,9 +164,9 @@ public partial class GitBashBuilder : IGitBashBuilder
     public bool GitForDebug { get; set; } = false;
     public List<string> Commands { get => SHGetLines.GetLines(ToString()); }
 
-    public static string CreateGitAddForFiles(StringBuilder sb, List<string> linesFiles)
+    public static string CreateGitAddForFiles(StringBuilder stringBuilder, List<string> linesFiles)
     {
-        return CreateGitCommandForFiles("add", sb, linesFiles);
+        return CreateGitCommandForFiles("add", stringBuilder, linesFiles);
     }
 
     public static string GenerateCommandForGit( /*object tlb,*/string solution, List<string> linesFiles, out bool anyError, string searchOnlyWithExtension, string command, string basePathIfA2SolutionsWontExistsOnFilesystem)
@@ -181,10 +181,10 @@ public partial class GitBashBuilder : IGitBashBuilder
         return result;
     }
 
-    public static string CheckoutWithExtension(string folder, string typedExt, List<string> files, string basePathIfA2SolutionsWontExistsOnFilesystem, TextBuilderDC ci)
+    public static string CheckoutWithExtension(string folder, string typedExt, List<string> files, string basePathIfA2SolutionsWontExistsOnFilesystem, TextBuilderDC textBuilder)
     {
         ThrowEx.IsNull("typedExt", typedExt);
-        GitBashBuilder bashBuilder = new GitBashBuilder(ci);
+        GitBashBuilder bashBuilder = new GitBashBuilder(textBuilder);
         bool anyError = false;
         var filesToCommit = GitBashBuilder.PrepareFilesToSimpleGitFormat( /*null,*/folder, files, out anyError, typedExt, basePathIfA2SolutionsWontExistsOnFilesystem);
         if (filesToCommit == null)

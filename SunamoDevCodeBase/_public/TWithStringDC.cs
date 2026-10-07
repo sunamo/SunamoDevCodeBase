@@ -9,9 +9,9 @@ public class TWithStringDC<T>
     {
     }
 
-    public TWithStringDC(T t, string path)
+    public TWithStringDC(T item, string path)
     {
-        this.t = t;
+        this.t = item;
         this.path = path;
     }
 

@@ -4,7 +4,7 @@ namespace SunamoDevCode._sunamo.SunamoFileSystem;
 // CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
 internal partial class FS
 {
-    internal static bool CopyMoveFilePrepare(ref string item, ref string fileTo, FileMoveCollisionOptionDC co)
+    internal static bool CopyMoveFilePrepare(ref string item, ref string fileTo, FileMoveCollisionOptionDC collisionOption)
     {
         //var fileTo = fileTo2.ToString();
         item = @"\\?\" + item;
@@ -13,7 +13,7 @@ internal partial class FS
         // Toto tu je důležité, nevím který kokot to zakomentoval
         if (File.Exists(fileTo))
         {
-            if (co == FileMoveCollisionOptionDC.AddFileSize)
+            if (collisionOption == FileMoveCollisionOptionDC.AddFileSize)
             {
                 var newFn = InsertBetweenFileNameAndExtension(fileTo, " " + new FileInfo(item).Length);
                 if (File.Exists(newFn))
@@ -24,7 +24,7 @@ internal partial class FS
 
                 fileTo = newFn;
             }
-            else if (co == FileMoveCollisionOptionDC.AddSerie)
+            else if (collisionOption == FileMoveCollisionOptionDC.AddSerie)
             {
                 var serie = 1;
                 while (true)
@@ -39,7 +39,7 @@ internal partial class FS
                     serie++;
                 }
             }
-            else if (co == FileMoveCollisionOptionDC.DiscardFrom)
+            else if (collisionOption == FileMoveCollisionOptionDC.DiscardFrom)
             {
                 // Cant delete from because then is file deleting
                 if (DeleteFileMaybeLocked != null)
@@ -47,14 +47,14 @@ internal partial class FS
                 else
                     File.Delete(item);
             }
-            else if (co == FileMoveCollisionOptionDC.Overwrite)
+            else if (collisionOption == FileMoveCollisionOptionDC.Overwrite)
             {
                 if (DeleteFileMaybeLocked != null)
                     DeleteFileMaybeLocked(fileTo);
                 else
                     File.Delete(fileTo);
             }
-            else if (co == FileMoveCollisionOptionDC.LeaveLarger)
+            else if (collisionOption == FileMoveCollisionOptionDC.LeaveLarger)
             {
                 var fsFrom = new FileInfo(item).Length;
                 var fsTo = new FileInfo(fileTo).Length;
@@ -63,12 +63,12 @@ internal partial class FS
                 else //if (fsFrom < fsTo)
                     File.Delete(item);
             }
-            else if (co == FileMoveCollisionOptionDC.DontManipulate)
+            else if (collisionOption == FileMoveCollisionOptionDC.DontManipulate)
             {
                 if (File.Exists(fileTo))
                     return false;
             }
-            else if (co == FileMoveCollisionOptionDC.ThrowEx)
+            else if (collisionOption == FileMoveCollisionOptionDC.ThrowEx)
             {
                 ThrowEx.Custom($"Directory {fileTo} already exists");
             }
@@ -78,14 +78,14 @@ internal partial class FS
     }
 
     internal static Action<string>? DeleteFileMaybeLocked = null;
-    internal static void MoveFile(string item, string fileTo, FileMoveCollisionOptionDC co)
+    internal static void MoveFile(string item, string fileTo, FileMoveCollisionOptionDC collisionOption)
     {
-        if (CopyMoveFilePrepare(ref item, ref fileTo, co))
+        if (CopyMoveFilePrepare(ref item, ref fileTo, collisionOption))
             try
             {
                 item = MakeUncLongPath(item);
                 fileTo = MakeUncLongPath(fileTo);
-                if (co == FileMoveCollisionOptionDC.DontManipulate && File.Exists(fileTo))
+                if (collisionOption == FileMoveCollisionOptionDC.DontManipulate && File.Exists(fileTo))
                     return;
                 File.Move(item, fileTo);
             }
@@ -102,9 +102,9 @@ internal partial class FS
         {
             File.Copy(sourceFile, destinationFile, true);
         }
-        catch (Exception ex)
+        catch (Exception exception)
         {
-            if (ex.Message.Contains("because it is being used by another process") && isTerminatingProcessIfInUse)
+            if (exception.Message.Contains("because it is being used by another process") && isTerminatingProcessIfInUse)
             {
                 if (fileUtilWhoIsLocking != null)
                 {
@@ -140,12 +140,12 @@ internal partial class FS
             CopyFile(filePath, destinationFile, collisionOption);
     }
 
-    internal static void CopyFile(string item, string fileTo2, FileMoveCollisionOptionDC co)
+    internal static void CopyFile(string item, string fileTo2, FileMoveCollisionOptionDC collisionOption)
     {
         var fileTo = fileTo2;
-        if (CopyMoveFilePrepare(ref item, ref fileTo, co))
+        if (CopyMoveFilePrepare(ref item, ref fileTo, collisionOption))
         {
-            if (co == FileMoveCollisionOptionDC.DontManipulate && File.Exists(fileTo))
+            if (collisionOption == FileMoveCollisionOptionDC.DontManipulate && File.Exists(fileTo))
                 return;
             File.Copy(item, fileTo);
         }
@@ -173,8 +173,8 @@ internal partial class FS
     {
         CopyMoveAllFilesRecursively(logger, sourceDirectory, destinationDirectory, collisionOption, true, null!, SearchOption.TopDirectoryOnly);
         var directories = Directory.GetDirectories(sourceDirectory, "*", SearchOption.AllDirectories);
-        for (var i = directories.Length - 1; i >= 0; i--)
-            TryDeleteDirectory(directories[i]);
+        for (var index = directories.Length - 1; index >= 0; index--)
+            TryDeleteDirectory(directories[index]);
         TryDeleteDirectory(sourceDirectory);
     }
 
@@ -184,14 +184,14 @@ internal partial class FS
         foreach (var item in FSGetFiles.GetFiles(logger, folder, mask, searchOption))
         {
             var ext = Path.GetExtension(item);
-            var fn = Path.GetFileNameWithoutExtension(item).ToLower();
-            if (fn == string.Empty)
+            var fileName = Path.GetFileNameWithoutExtension(item).ToLower();
+            if (fileName == string.Empty)
             {
-                fn = ext;
+                fileName = ext;
                 ext = "";
             }
 
-            DictionaryHelper.AddOrCreate(extDict, ext, fn);
+            DictionaryHelper.AddOrCreate(extDict, ext, fileName);
         }
 
         return extDict;
@@ -201,7 +201,7 @@ internal partial class FS
     {
         var jumpUp = ".." + delimiter;
         var stringBuilder = new StringBuilder();
-        for (var i = 0; i < levelsUp; i++)
+        for (var index = 0; index < levelsUp; index++)
             stringBuilder.Append(jumpUp);
         stringBuilder.Append(file);
         return stringBuilder.ToString();

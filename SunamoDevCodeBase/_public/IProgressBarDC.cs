@@ -4,8 +4,8 @@ public interface IProgressBarDC
 {
     bool IsRegistered { get; set; }
     int WriteOnlyDividableBy { get; set; }
-    void Init(IPercentCalculatorDC pc);
-    void Init(IPercentCalculatorDC pc, bool isNotUt);
+    void Init(IPercentCalculatorDC percentCalculator);
+    void Init(IPercentCalculatorDC percentCalculator, bool isNotUt);
     void DoneOne(object asyncResult);
     void DoneOne();
     void DoneOne(int count);

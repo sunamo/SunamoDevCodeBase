@@ -14,17 +14,17 @@ internal sealed partial class Exceptions
         return string.IsNullOrWhiteSpace(before) ? string.Empty : before + ": ";
     }
 
-    internal static string TextOfExceptions(Exception ex, bool alsoInner = true)
+    internal static string TextOfExceptions(Exception exception, bool alsoInner = true)
     {
-        if (ex == null) return string.Empty;
+        if (exception == null) return string.Empty;
         StringBuilder stringBuilder = new();
         stringBuilder.Append("Exception:");
-        stringBuilder.AppendLine(ex.Message);
+        stringBuilder.AppendLine(exception.Message);
         if (alsoInner)
-            while (ex.InnerException != null)
+            while (exception.InnerException != null)
             {
-                ex = ex.InnerException;
-                stringBuilder.AppendLine(ex.Message);
+                exception = exception.InnerException;
+                stringBuilder.AppendLine(exception.Message);
             }
         var result = stringBuilder.ToString();
         return result;
@@ -131,9 +131,9 @@ bool isFillAlsoFirstTwo = true)
     {
         return CheckBefore(before) + message;
     }
-    internal static string? ExcAsArg(string before, Exception ex, string message)
+    internal static string? ExcAsArg(string before, Exception exception, string message)
     {
-        return CheckBefore(before) + message + string.Empty + TextOfExceptions(ex);
+        return CheckBefore(before) + message + string.Empty + TextOfExceptions(exception);
     }
     internal static string? NotImplementedMethod(string before)
     {
@@ -195,9 +195,9 @@ bool isFillAlsoFirstTwo = true)
             string.Concat(namesc + "-" + countsc);
         return null;
     }
-    internal static string? KeyNotFound<T, U>(string before, IDictionary<T, U> en, string dictName, T key)
+    internal static string? KeyNotFound<T, U>(string before, IDictionary<T, U> dictionary, string dictName, T key)
     {
-        return !en.ContainsKey(key)
+        return !dictionary.ContainsKey(key)
         ? CheckBefore(before) + key + " is not exists in dictionary" + " " + dictName
         : null;
     }
