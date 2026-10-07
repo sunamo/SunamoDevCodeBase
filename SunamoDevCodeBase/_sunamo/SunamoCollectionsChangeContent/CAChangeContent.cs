@@ -12,11 +12,11 @@ internal class CAChangeContent
             }
             if (args.RemoveEmpty)
             {
-                for (int i = list.Count - 1; i >= 0; i--)
+                for (int index = list.Count - 1; index >= 0; index--)
                 {
-                    if (list[i].Trim() == string.Empty)
+                    if (list[index].Trim() == string.Empty)
                     {
-                        list.RemoveAt(i);
+                        list.RemoveAt(index);
                     }
                 }
             }
@@ -27,9 +27,9 @@ internal class CAChangeContent
     // If not every element fulfills pattern, it is good to remove null (or values returned if can't be changed) from result
     internal static List<string> ChangeContent0(ChangeContentArgsDC args, List<string> list, Func<string, string> func)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            list[i] = func.Invoke(list[i]);
+            list[index] = func.Invoke(list[index]);
         }
         RemoveNullOrEmpty(args, list);
         return list;
@@ -45,9 +45,9 @@ internal class CAChangeContent
     #region Switch first and second argument
     internal static List<string> ChangeContentSwitch12<Arg1>(List<string> list, Func<Arg1, string, string> func, Arg1 argument)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            list[i] = func.Invoke(argument, list[i]);
+            list[index] = func.Invoke(argument, list[index]);
         }
         return list;
     }
@@ -63,9 +63,9 @@ internal class CAChangeContent
         }
         else
         {
-            for (int i = 0; i < list.Count; i++)
+            for (int index = 0; index < list.Count; index++)
             {
-                list[i] = func.Invoke(list[i], argument);
+                list[index] = func.Invoke(list[index], argument);
             }
         }
         RemoveNullOrEmpty(args, list);
@@ -77,9 +77,9 @@ internal class CAChangeContent
     // Direct edit - Changes content of list using provided function with 2 additional parameters
     internal static List<string> ChangeContent<Arg1, Arg2>(ChangeContentArgsDC args, List<string> list, Func<string, Arg1, Arg2, string> func, Arg1 argument1, Arg2 argument2)
     {
-        for (int i = 0; i < list.Count; i++)
+        for (int index = 0; index < list.Count; index++)
         {
-            list[i] = func.Invoke(list[i], argument1, argument2);
+            list[index] = func.Invoke(list[index], argument1, argument2);
         }
         RemoveNullOrEmpty(args, list);
         return list;

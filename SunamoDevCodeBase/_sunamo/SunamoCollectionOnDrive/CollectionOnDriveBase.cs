@@ -106,7 +106,7 @@ internal abstract class CollectionOnDriveBase<T>(ILogger logger) : List<T>
             }
         }
     }
-    private void W_Changed(object sender, FileSystemEventArgs e)
+    private void W_Changed(object sender, FileSystemEventArgs eventArgs)
     {
         if (!isSaving)
             Load(removeDuplicates);

@@ -4,9 +4,9 @@ public class ExtensionSortedCollection
 {
     public Dictionary<string, List<string>> dictionary = new Dictionary<string, List<string>>();
 
-    public ExtensionSortedCollection(params string[] d)
+    public ExtensionSortedCollection(params string[] extensions)
     {
-        d.ToList().ForEach(fileName => AddOnlyFileName(fileName));
+        extensions.ToList().ForEach(fileName => AddOnlyFileName(fileName));
     }
 
     public void AddOnlyFileName(string fileName)
@@ -22,9 +22,9 @@ public class ExtensionSortedCollection
         }
         else
         {
-            var ad = new List<string>();
-            ad.Add(value);
-            dictionary.Add(key, ad);
+            var values = new List<string>();
+            values.Add(value);
+            dictionary.Add(key, values);
         }
     }
 

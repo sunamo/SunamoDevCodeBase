@@ -26,7 +26,7 @@ public partial class GitBashBuilder : IGitBashBuilder
 
         FS.WithEndSlash(ref pathRepository);
         var files = Directory.GetFiles(pathSearchForFiles, "*.*", System.IO.SearchOption.AllDirectories).ToList();
-        files = files.Where(d => !d.Contains(@"\.git\")).ToList();
+        files = files.Where(filePath => !filePath.Contains(@"\.git\")).ToList();
         CA.Replace(linesFiles, solution, string.Empty);
         CAChangeContent.ChangeContent1(null!, linesFiles, SHParts.RemoveAfterFirst, "-");
         CA.Trim(linesFiles);
@@ -39,10 +39,10 @@ public partial class GitBashBuilder : IGitBashBuilder
         Dictionary<string, List<string>> dictPsychicallyExistsFiles = FS.GetDictionaryByFileNameWithExtension(files);
         CA.Replace(files, "\"", "/");
         pathRepository = FS.Slash(pathRepository, false);
-        for (int i = 0; i < linesFiles.Count; i++)
+        for (int index = 0; index < linesFiles.Count; index++)
         {
-            var item = linesFilesOnlyFilename[i];
-            var itemWithoutTrim = linesFiles[i];
+            var item = linesFilesOnlyFilename[index];
+            var itemWithoutTrim = linesFiles[index];
 #region Directory\*
             if (item[item.Length - 1] == '*')
             {
@@ -126,7 +126,7 @@ public partial class GitBashBuilder : IGitBashBuilder
 
     public static string SomeErrorsOccured { get; set; } = "SomeErrorsOccured";
 #pragma warning disable
-    public static string CreateGitCommandForFiles(string command, StringBuilder sb, List<string> linesFiles)
+    public static string CreateGitCommandForFiles(string command, StringBuilder stringBuilder, List<string> linesFiles)
     {
         return null;
     }

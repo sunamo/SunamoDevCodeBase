@@ -8,9 +8,9 @@ internal class FSGetFiles
         {
             return Directory.GetFiles(folder, mask, searchOption).ToList();
         }
-        catch (Exception ex)
+        catch (Exception exception)
         {
-            logger.LogError(ex.Message);
+            logger.LogError(exception.Message);
             return new List<string>();
         }
     }

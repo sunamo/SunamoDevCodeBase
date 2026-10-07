@@ -17,9 +17,9 @@ internal class FSGetFolders
             return result;
 
         }
-        catch (Exception ex)
+        catch (Exception exception)
         {
-            logger.LogError(ex.Message);
+            logger.LogError(exception.Message);
             return new List<string>();
         }
     }

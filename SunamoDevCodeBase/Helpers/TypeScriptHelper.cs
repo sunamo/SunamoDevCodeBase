@@ -88,13 +88,13 @@ public class TypeScriptHelper
             return searchQuery;
         };
         CAChangeContent.ChangeContent(new ChangeContentArgsDC { }, __typesList, keepAfterFirst, ":", false);
-        for (int i = 0; i < __typesList.Count; i++)
+        for (int index = 0; index < __typesList.Count; index++)
         {
-            var temp = __typesList[i];
+            var temp = __typesList[index];
             temp = temp.Trim();
             temp = temp.TrimEnd(';');
             temp = temp.Trim('2');
-            __typesList[i] = temp;
+            __typesList[index] = temp;
         }
 
         return new Tuple<List<string>, List<string>>(list, __typesList);

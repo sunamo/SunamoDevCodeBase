@@ -29,16 +29,16 @@ public class CSharpParser
             await
                 FileAsync.ReadAllTextAsync(file)).ToList();
 
-        for (var i = lines.Count - 1; i >= 0; i--)
+        for (var lineIndex = lines.Count - 1; lineIndex >= 0; lineIndex--)
         {
-            var text = lines[i].Trim();
+            var text = lines[lineIndex].Trim();
             if (text.Contains(XmlLocalisationInterchangeFileFormatSunamo.Cs))
             {
                 var key = XmlLocalisationInterchangeFileFormatSunamo.GetConstsFromLine(text);
                 var keyIndex = remove.IndexOf(key);
                 if (keyIndex != -1)
                 {
-                    lines.RemoveAt(i);
+                    lines.RemoveAt(lineIndex);
                     remove.RemoveAt(keyIndex);
                 }
             }
@@ -55,12 +55,12 @@ public class CSharpParser
     {
         var keys = new List<string>();
         first = -1;
-        for (var i = 0; i < lines.Count; i++)
+        for (var index = 0; index < lines.Count; index++)
         {
-            var text = lines[i].Trim();
+            var text = lines[index].Trim();
             if (text.Contains(XmlLocalisationInterchangeFileFormatSunamo.Cs))
             {
-                if (first == -1) first = i;
+                if (first == -1) first = index;
 
                 var key = XmlLocalisationInterchangeFileFormatSunamo.GetConstsFromLine(text);
                 keys.Add(key);
@@ -73,9 +73,9 @@ public class CSharpParser
     public static List<string> ParseConstsAllLines(List<string> lines)
     {
         var keys = new List<string>();
-        for (var i = 0; i < lines.Count; i++)
+        for (var index = 0; index < lines.Count; index++)
         {
-            var text = lines[i].Trim();
+            var text = lines[index].Trim();
             var key = XmlLocalisationInterchangeFileFormatSunamo.GetConstsFromLine(text);
             keys.Add(key);
         }

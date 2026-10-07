@@ -10,28 +10,28 @@ internal class CAG
 
         int foundIndex;
 
-        for (int i = secondList.Count - 1; i >= 0; i--)
+        for (int index = secondList.Count - 1; index >= 0; index--)
         {
-            T currentItem = secondList[i];
+            T currentItem = secondList[index];
             foundIndex = firstList.IndexOf(currentItem);
 
             if (foundIndex != -1)
             {
                 existsInBoth.Add(currentItem);
-                secondList.RemoveAt(i);
+                secondList.RemoveAt(index);
                 firstList.RemoveAt(foundIndex);
             }
         }
 
-        for (int i = firstList.Count - 1; i >= 0; i--)
+        for (int itemIndex = firstList.Count - 1; itemIndex >= 0; itemIndex--)
         {
-            T currentItem = firstList[i];
+            T currentItem = firstList[itemIndex];
             foundIndex = secondList.IndexOf(currentItem);
 
             if (foundIndex != -1)
             {
                 existsInBoth.Add(currentItem);
-                firstList.RemoveAt(i);
+                firstList.RemoveAt(itemIndex);
                 secondList.RemoveAt(foundIndex);
             }
         }
@@ -69,16 +69,16 @@ internal class CAG
     {
         foundedDuplicities = new List<T>();
         var uniqueItems = new List<T>();
-        for (int i = list.Count - 1; i >= 0; i--)
+        for (int index = list.Count - 1; index >= 0; index--)
         {
-            var currentItem = list[i];
+            var currentItem = list[index];
             if (!uniqueItems.Contains(currentItem))
             {
                 uniqueItems.Add(currentItem);
             }
             else
             {
-                list.RemoveAt(i);
+                list.RemoveAt(index);
                 foundedDuplicities.Add(currentItem);
             }
         }

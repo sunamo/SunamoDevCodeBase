@@ -6,7 +6,7 @@ internal static class StringExtensions
     {
         int[] charsToRemove = [8205];
         return new string(input.ToCharArray()
-            .Where(c => !charsToRemove.Contains(c))
+            .Where(character => !charsToRemove.Contains(character))
             .ToArray());
     }
 }

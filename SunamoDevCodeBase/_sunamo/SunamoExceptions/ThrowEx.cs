@@ -50,8 +50,8 @@ internal partial class ThrowEx
             Exceptions.DuplicatedElements(FullNameOfExecutedCode(), nameOfVariable, duplicatedElements, message));
     }
 
-    internal static bool ExcAsArg(Exception ex, string message = "")
-    { return ThrowIsNotNull(Exceptions.ExcAsArg, ex, message); }
+    internal static bool ExcAsArg(Exception exception, string message = "")
+    { return ThrowIsNotNull(Exceptions.ExcAsArg, exception, message); }
 
     internal static bool IsNotAllowed(string what)
     { return ThrowIsNotNull(Exceptions.IsNotAllowed(FullNameOfExecutedCode(), what)); }

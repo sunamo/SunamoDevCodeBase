@@ -5,12 +5,12 @@ internal class ConvertSnakeConvention
     static string Sanitize(string input)
     {
         var text = new StringBuilder(input.Replace("", "_").Replace("__", "_"));
-        for (int i = text.Length - 1; i >= 0; i--)
+        for (int index = text.Length - 1; index >= 0; index--)
         {
-            var character = text[i];
+            var character = text[index];
             if (!char.IsLetter(character) && !char.IsDigit(character) && character != '_')
             {
-                text = text.Remove(i, 1);
+                text = text.Remove(index, 1);
             }
         }
         return text.ToString();
