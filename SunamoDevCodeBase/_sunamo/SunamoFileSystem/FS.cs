@@ -1,6 +1,5 @@
 namespace SunamoDevCode._sunamo.SunamoFileSystem;
 
-// Variable names have been checked and replaced with self-descriptive names
 internal partial class FS
 {
     internal static void DeleteFoldersWhichNotContains(string rootPath, string folderPattern, IList<string> mustContainPatterns)

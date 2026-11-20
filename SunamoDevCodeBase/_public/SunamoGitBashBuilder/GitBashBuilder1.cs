@@ -1,6 +1,5 @@
 namespace SunamoDevCode._public.SunamoGitBashBuilder;
 
-// Variable names have been checked and replaced with self-descriptive names
 public partial class GitBashBuilder : IGitBashBuilder
 {
     public static List<string>? PrepareFilesToSimpleGitFormat(string solution, List<string> linesFiles, out bool anyError, string searchOnlyWithExtension, string basePathIfA2SolutionsWontExistsOnFilesystem)

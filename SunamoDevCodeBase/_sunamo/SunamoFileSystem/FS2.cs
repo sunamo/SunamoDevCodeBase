@@ -1,6 +1,5 @@
 namespace SunamoDevCode._sunamo.SunamoFileSystem;
 
-// Variable names have been checked and replaced with self-descriptive names
 internal partial class FS
 {
     internal static string Slash(string path, bool slash)

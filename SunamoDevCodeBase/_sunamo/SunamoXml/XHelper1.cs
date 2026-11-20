@@ -1,6 +1,5 @@
 namespace SunamoDevCode._sunamo.SunamoXml;
 
-// Variable names have been checked and replaced with self-descriptive names
 internal partial class XHelper
 {
     internal static 
