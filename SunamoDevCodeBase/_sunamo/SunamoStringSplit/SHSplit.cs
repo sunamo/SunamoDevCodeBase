@@ -12,7 +12,7 @@ internal class SHSplit
         var text = Split(what.RemoveInvisibleChars(), delimiter);
         if (text.Count < parts)
         {
-            // Pokud je pocet ziskanych partu mensi, vlozim do zbytku prazdne retezce
+            // If the number of obtained parts is smaller, I fill the rest with empty strings
             if (text.Count > 0)
             {
                 var paddedResult = new List<string>();
@@ -28,9 +28,9 @@ internal class SHSplit
         }
 
         if (text.Count == parts)
-            // Pokud pocet ziskanych partu souhlasim presne, vratim jak je
+            // If the number of obtained parts matches exactly, I return it as is
             return text;
-        // Pokud je pocet ziskanych partu vetsi nez kolik ma byt, pripojim ty co josu navic do zbytku
+        // If the number of obtained parts is greater than it should be, I append the extra ones to the rest
         parts--;
         var result = new List<string>();
         for (var partIndex = 0; partIndex < text.Count; partIndex++)

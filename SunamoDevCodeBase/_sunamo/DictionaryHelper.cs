@@ -49,7 +49,7 @@ internal class DictionaryHelper
         }
     }
 
-    #region AddOrCreate když key i value není list
+    #region AddOrCreate when both key and value are not a list
     internal static void AddOrCreate<Key, Value, ColType>(IDictionary<Key, List<Value>> dict, Key key, Value value,
     bool withoutDuplicitiesInValue = false, Dictionary<Key, List<string>>? dictS = null) where Key : notnull
     {

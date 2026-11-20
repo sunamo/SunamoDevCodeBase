@@ -203,7 +203,7 @@ public class XmlLocalisationInterchangeFileFormatSunamo
         return null;
     }
 
-    #region Mám už tady metodu GetKeysInCsWithRLDataEn, proto je toto zbytečné
+    #region I already have the method GetKeysInCsWithRLDataEn here, so this is unnecessary
 
 
 
