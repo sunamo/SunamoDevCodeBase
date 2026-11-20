@@ -42,7 +42,6 @@ global using SunamoDevCode._sunamo.SunamoFileSystem;
 global using SunamoDevCode._sunamo.SunamoGetFiles;
 global using SunamoDevCode._sunamo.SunamoHtml.Html;
 global using SunamoDevCode._sunamo.SunamoInterfaces.Interfaces;
-global using SunamoDevCode._sunamo.SunamoLang.SunamoI18N;
 global using SunamoDevCode._sunamo.SunamoLang.SunamoXlf;
 global using SunamoDevCode._sunamo.SunamoPlatformUwpInterop;
 global using SunamoDevCode._sunamo.SunamoRegex;
