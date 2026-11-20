@@ -100,8 +100,8 @@ internal partial class FS
 
     internal static string InsertBetweenFileNameAndExtension(string originalPath, string textToInsert)
     {
-        // Cesta by se zde hodila kvůli FS.CiStorageFile
-        // nicméně StorageFolder nevím zda se používá, takže to bude umět i bez toho
+        // The path would be useful here because of FS.CiStorageFile
+        // however I do not know whether StorageFolder is used, so it will work even without it
         var originalPathString = originalPath.ToString();
         string fileName = Path.GetFileNameWithoutExtension(originalPathString);
         string extension = Path.GetExtension(originalPathString);
@@ -122,7 +122,7 @@ internal partial class FS
 
     // No direct edit
     // Returns with extension
-    // POZOR: Na rozdíl od stejné metody v sunamo tato metoda vrací úplně nové pole a nemodifikuje A1
+    // WARNING: Unlike the same method in sunamo, this method returns a completely new array and does not modify A1
     internal static List<string> OnlyNamesNoDirectEdit(List<string> filePaths)
     {
         var fileNames = new List<string>(filePaths.Count);

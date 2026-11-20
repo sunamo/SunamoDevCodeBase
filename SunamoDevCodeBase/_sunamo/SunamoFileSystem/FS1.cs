@@ -8,7 +8,7 @@ internal partial class FS
         item = @"\\?\" + item;
         MakeUncLongPath(ref fileTo);
         CreateUpfoldersPsysicallyUnlessThere(fileTo);
-        // Toto tu je důležité, nevím který kokot to zakomentoval
+        // This is important here, I do not know who commented it out
         if (File.Exists(fileTo))
         {
             if (collisionOption == FileMoveCollisionOptionDC.AddFileSize)
@@ -110,14 +110,14 @@ internal partial class FS
                         item.Kill();
                 }
 
-                // Používá se i ve web, musel bych tam includovat spoustu metod
+                // It is also used in the web, I would have to include a lot of methods there
                 try
                 {
                     File.Copy(sourceFile, destinationFile, true);
                 }
                 catch (Exception)
                 {
-                // Pokud se to ani na druhý pokus nepodaří, tak už to jebu
+                // If it fails even on the second attempt, then I give up
                 }
             }
             else

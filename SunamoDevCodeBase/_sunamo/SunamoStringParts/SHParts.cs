@@ -13,9 +13,9 @@ internal class SHParts
         string result = text.Remove(index);
         return result;
     }
-    // Metoda KeepAfterFirst byla odstraněna - inlined v TypeScriptHelper.cs:79
+    // The KeepAfterFirst method was removed - inlined in TypeScriptHelper.cs:79
 
-    // Metoda RemoveAfterLast byla odstraněna - inlined v SolutionFolderSerialize.cs:57
+    // The RemoveAfterLast method was removed - inlined in SolutionFolderSerialize.cs:57
 
     internal static string RemoveAfterFirst(string text, char searchChar)
     {

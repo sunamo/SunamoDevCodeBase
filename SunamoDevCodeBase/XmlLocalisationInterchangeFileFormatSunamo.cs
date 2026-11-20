@@ -191,7 +191,7 @@ public class XmlLocalisationInterchangeFileFormatSunamo
     public static string? TextFromRLData(string pathOrExt, string key2)
     {
         var ext = Path.GetExtension(pathOrExt);
-        // Inlined from SH.PrefixIfNotStartedWith - přidává prefix pokud řetězec nezačíná daným prefixem
+        // Inlined from SH.PrefixIfNotStartedWith - adds a prefix if the string does not start with the given prefix
         if (!ext.StartsWith("."))
         {
             ext = "." + ext;
