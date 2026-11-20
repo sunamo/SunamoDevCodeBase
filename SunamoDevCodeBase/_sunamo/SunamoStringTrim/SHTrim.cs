@@ -10,7 +10,7 @@ internal class SHTrim
         return text;
     }
 
-    // EN: Method TrimLeadingNumbersAtStart was removed - inlined in ConstsManager.cs:110
+    // Method TrimLeadingNumbersAtStart was removed - inlined in ConstsManager.cs:110
 
     internal static string TrimEnd(string text, string suffix)
     {
@@ -19,7 +19,7 @@ internal class SHTrim
         return text;
     }
 
-    // EN: Method TrimStartAndEnd was removed - inlined in XmlLocalisationInterchangeFileFormat2.cs:691
+    // Method TrimStartAndEnd was removed - inlined in XmlLocalisationInterchangeFileFormat2.cs:691
 
     internal static string TrimStart(string text, string prefix)
     {

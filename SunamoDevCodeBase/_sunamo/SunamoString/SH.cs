@@ -52,8 +52,7 @@ internal class SH
         return lines[lineIndex];
     }
 
-    // EN: Return index, therefore x-1
-    // CZ: Vrátí index, proto x-1
+    // Return index, therefore x-1
     internal static int GetLineIndexFromCharIndex(string text, int characterPosition)
     {
         var lineNumber = text.Take(characterPosition).Count(character => character == '\n') + 1;
@@ -82,8 +81,7 @@ internal class SH
             var length = beforeIndex - foundIndex + 1;
             if (length < 1)
             {
-                // EN: This was here before but logically it's nonsense
-                // CZ: Takhle to tu bylo předtím ale logicky je to nesmysl
+                // This was here before but logically it's nonsense
             }
             result = text.Substring(foundIndex, length).Trim();
         }

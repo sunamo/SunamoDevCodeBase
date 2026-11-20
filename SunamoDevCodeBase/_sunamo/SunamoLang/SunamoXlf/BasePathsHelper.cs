@@ -2,7 +2,7 @@ namespace SunamoDevCode._sunamo.SunamoLang.SunamoXlf;
 
 internal class BasePathsHelper
 {
-    // EN: Don't use this anymore. Pass in parameters to keep it as simple as possible.
+    // Don't use this anymore. Pass in parameters to keep it as simple as possible.
 
     internal static string? VsProjects = null;
     internal static string ActualPlatform = null!;

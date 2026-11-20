@@ -1,7 +1,6 @@
 namespace SunamoDevCode._sunamo.SunamoValues.Values;
 
-// EN: Variable names have been checked and replaced with self-descriptive names
-// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+// Variable names have been checked and replaced with self-descriptive names
 internal partial class AllLists
 {
     internal static void InitHtmlEntitiesDict()

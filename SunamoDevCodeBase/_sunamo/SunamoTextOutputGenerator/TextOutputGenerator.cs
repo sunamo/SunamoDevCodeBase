@@ -2,7 +2,7 @@ namespace SunamoDevCode._sunamo.SunamoTextOutputGenerator;
 
 internal class TextOutputGenerator
 {
-    // EN: During NuGet conversion, I changed this to TextBuilderDC StringBuilder = TextBuilder.Create();
+    // During NuGet conversion, I changed this to TextBuilderDC StringBuilder = TextBuilder.Create();
     // but that was probably a mistake, now in _sunamo I have Create() which returns null instead of using ctor
     // so I'm reverting it back.
     internal StringBuilder StringBuilder = new StringBuilder();
