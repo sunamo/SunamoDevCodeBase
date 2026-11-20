@@ -1,9 +1,15 @@
 namespace SunamoDevCode;
 
+/// <summary>
+/// Represents the ppk on drive dev code base t type.
+/// </summary>
 public abstract class PpkOnDriveDevCodeBase<T> : List<T>
 {
     #region DPP
 
+    /// <summary>
+    /// The args.
+    /// </summary>
     protected PpkOnDriveDevCodeArgs args;
 
     #endregion
@@ -13,6 +19,9 @@ public abstract class PpkOnDriveDevCodeBase<T> : List<T>
     // Must use FileSystemWatcher, not FileSystemWatcher because its in sunamo, not desktop
     private readonly FileSystemWatcher w = null!;
 
+    /// <summary>
+    /// Remove all.
+    /// </summary>
     public
         async Task
         RemoveAll()
@@ -22,32 +31,55 @@ public abstract class PpkOnDriveDevCodeBase<T> : List<T>
             FileAsync.WriteAllTextAsync(args.File, string.Empty);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the remove class.
+    /// </summary>
+    /// <param name="args.File">The args file.</param>
+    /// <param name="string.Empty">The string empty.</param>
     public new async Task Remove(T value)
     {
         base.Remove(value);
         await Save();
     }
 
+    /// <summary>
+    /// Clear.
+    /// </summary>
+    /// <returns>The clear result.</returns>
     public new async Task Clear()
     {
         base.Clear();
         await Save();
     }
 
+    /// <summary>
+    /// Load.
+    /// </summary>
     public abstract
         Task
         Load();
 
+    /// <summary>
+    /// Add without save.
+    /// </summary>
     public void AddWithoutSave(T value)
     {
         if (!Contains(value)) base.Add(value);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the add class.
+    /// </summary>
+    /// <param name="!Contains(value)">The contains value.</param>
     public async Task Add(IList<T> items)
     {
         foreach (var item in items) await Add(item);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the add class.
+    /// </summary>
+    /// <param name="items">The items.</param>
     public new async Task<bool> Add(T value)
     {
         var wasAdded = false;
@@ -71,6 +103,10 @@ public abstract class PpkOnDriveDevCodeBase<T> : List<T>
         if (loadImmediately) Load();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the save class.
+    /// </summary>
+    /// <param name="loadImmediately">The load immediately.</param>
     public async Task Save()
     {
         if (args.Save)
@@ -95,6 +131,10 @@ public abstract class PpkOnDriveDevCodeBase<T> : List<T>
         return stringBuilder.ToString();
     }
 
+    /// <summary>
+    /// To string.
+    /// </summary>
+    /// <returns>The to string result.</returns>
     public override string ToString()
     {
         return ReturnContent();
@@ -102,6 +142,11 @@ public abstract class PpkOnDriveDevCodeBase<T> : List<T>
 
     #region base
 
+    /// <summary>
+    /// Ppk on drive dev code base.
+    /// </summary>
+    /// <param name="args">The args.</param>
+    /// <returns>The ppk on drive dev code base result.</returns>
     public PpkOnDriveDevCodeBase(PpkOnDriveDevCodeArgs args)
     {
         this.args = args;

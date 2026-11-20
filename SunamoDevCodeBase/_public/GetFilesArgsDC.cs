@@ -1,6 +1,9 @@
 namespace SunamoDevCode._public;
 
 // TODO: Should this inherit from GetFoldersEveryFolderArgs? In vs2 it does
+/// <summary>
+/// Represents the get files args DC type.
+/// </summary>
 public class GetFilesArgsDC : GetFilesBaseArgsDC
 {
     // TODO: This class has issues - clean up what should and shouldn't be here

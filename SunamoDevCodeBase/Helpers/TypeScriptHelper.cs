@@ -1,5 +1,8 @@
 namespace SunamoDevCode.Helpers;
 
+/// <summary>
+/// Represents the type script helper type.
+/// </summary>
 public class TypeScriptHelper
 {
     private static Dictionary<string, string> ___types = new Dictionary<string, string>();
@@ -13,6 +16,11 @@ public class TypeScriptHelper
         ___defaultValueForType.Add("Date", "dt");
     }
 
+    /// <summary>
+    /// Type.
+    /// </summary>
+    /// <param name="typeName">The type name.</param>
+    /// <returns>The type result.</returns>
     public static string Type(string typeName)
     {
         if (___types.ContainsKey(typeName))
@@ -23,6 +31,14 @@ public class TypeScriptHelper
         return typeName;
     }
 
+    /// <summary>
+    /// Default value for type.
+    /// </summary>
+    /// <param name="typeName">The type name.</param>
+    /// <param name="prefixIfString">The prefix if string.</param>
+    /// <param name="isArgNumber">The is arg number.</param>
+    /// <param name="nameArgMethod">The name arg method.</param>
+    /// <returns>The default value for type result.</returns>
     public static string DefaultValueForType(string typeName, string prefixIfString = "", /*bool isArgNumber = false,*/ string nameArgMethod = "")
     {
         if (typeName.EndsWith("[]"))
@@ -58,6 +74,11 @@ public class TypeScriptHelper
 
 
     // Do not use for interfaces unless explicitly allowed to have optional (?) modifiers
+    /// <summary>
+    /// Get names and types.
+    /// </summary>
+    /// <param name="list">The list.</param>
+    /// <returns>The get names and types result.</returns>
     public static Tuple<List<string>, List<string>> GetNamesAndTypes(List<string> list)
     {
         var __typesList = list.ToList();

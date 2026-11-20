@@ -2,6 +2,15 @@ namespace SunamoDevCode._public.SunamoGitBashBuilder;
 
 public partial class GitBashBuilder : IGitBashBuilder
 {
+    /// <summary>
+    /// Prepare files to simple git format.
+    /// </summary>
+    /// <param name="solution">The solution.</param>
+    /// <param name="linesFiles">The lines files.</param>
+    /// <param name="anyError">The any error.</param>
+    /// <param name="searchOnlyWithExtension">The search only with extension.</param>
+    /// <param name="basePathIfA2SolutionsWontExistsOnFilesystem">The base path if a 2 solutions wont exists on filesystem.</param>
+    /// <returns>The prepare files to simple git format result.</returns>
     public static List<string>? PrepareFilesToSimpleGitFormat(string solution, List<string> linesFiles, out bool anyError, string searchOnlyWithExtension, string basePathIfA2SolutionsWontExistsOnFilesystem)
     {
         searchOnlyWithExtension = searchOnlyWithExtension.TrimStart('*');
@@ -122,6 +131,9 @@ public partial class GitBashBuilder : IGitBashBuilder
         return filesToCommit;
     }
 
+    /// <summary>
+    /// Gets or sets the some errors occured.
+    /// </summary>
     public static string SomeErrorsOccured { get; set; } = "SomeErrorsOccured";
 #pragma warning disable
     public static string CreateGitCommandForFiles(string command, StringBuilder stringBuilder, List<string> linesFiles)
@@ -130,31 +142,54 @@ public partial class GitBashBuilder : IGitBashBuilder
     }
 
 #pragma warning restore
+    /// <summary>
+    /// Cd.
+    /// </summary>
+    /// <param name="key">The key.</param>
+    /// <returns>The cd result.</returns>
     public void Cd(string key)
     {
         StringBuilder.AppendLine("cd " + SH.WrapWith(key, "\""));
     }
 
+    /// <summary>
+    /// Initializes a new instance of the clear class.
+    /// </summary>
+    /// <param name=""\"")">The "\"").</param>
     public void Clear()
     {
         StringBuilder.Clear();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the append class.
+    /// </summary>
     public void Append(string text)
     {
         StringBuilder.Append(text + " ");
     }
 
+    /// <summary>
+    /// Initializes a new instance of the append line class.
+    /// </summary>
+    /// <param name=""">The ".</param>
     public void AppendLine(string text)
     {
         StringBuilder.AppendLine(text);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the append line class.
+    /// </summary>
+    /// <param name="text">The text.</param>
     public void AppendLine()
     {
         StringBuilder.AppendLine();
     }
 
+    /// <summary>
+    /// Initializes a new instance of the to string class.
+    /// </summary>
     public override string ToString()
     {
         return StringBuilder.ToString();

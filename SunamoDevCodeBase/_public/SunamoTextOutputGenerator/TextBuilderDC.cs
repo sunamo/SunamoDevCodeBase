@@ -1,17 +1,33 @@
 namespace SunamoDevCode._public.SunamoTextOutputGenerator;
 
+/// <summary>
+/// Represents the text builder DC type.
+/// </summary>
 public class TextBuilderDC
 {
     private static Type type = typeof(TextBuilderDC);
     private bool _canUndo = false;
     private int _lastIndex = -1;
     private string _lastText = "";
+    /// <summary>
+    /// The string builder.
+    /// </summary>
     public StringBuilder stringBuilder = null!;
+    /// <summary>
+    /// Gets or sets the prepend every no white.
+    /// </summary>
     public string prependEveryNoWhite { get; set; } = string.Empty;
 
+    /// <summary>
+    /// Gets or sets the list.
+    /// </summary>
     public List<string> list { get; set; } = null!;
     private bool _useList = false;
 
+    /// <summary>
+    /// Clear.
+    /// </summary>
+    /// <returns>The clear result.</returns>
     public void Clear()
     {
         if (_useList)
@@ -24,11 +40,18 @@ public class TextBuilderDC
         }
     }
 
+    /// <summary>
+    /// Create.
+    /// </summary>
+    /// <returns>The create result.</returns>
     public static TextBuilderDC Create(bool useList = false)
     {
         return new TextBuilderDC(useList);
     }
 
+    /// <summary>
+    /// Initializes a new instance of the text builder DC class.
+    /// </summary>
     public TextBuilderDC(bool useList = false)
     {
         _useList = useList;
@@ -42,6 +65,9 @@ public class TextBuilderDC
         }
     }
 
+    /// <summary>
+    /// The can undo.
+    /// </summary>
     public bool CanUndo
     {
         get
@@ -68,6 +94,11 @@ public class TextBuilderDC
         ThrowEx.IsNotAllowed(what);
     }
 
+    /// <summary>
+    /// Undo.
+    /// </summary>
+    /// <param name="what">The what.</param>
+    /// <returns>The undo result.</returns>
     public void Undo()
     {
         if (_useList)
@@ -80,6 +111,9 @@ public class TextBuilderDC
         }
     }
 
+    /// <summary>
+    /// Append.
+    /// </summary>
     public void Append(string text)
     {
         if (_useList)
@@ -114,6 +148,11 @@ public class TextBuilderDC
         }
     }
 
+    /// <summary>
+    /// Append.
+    /// </summary>
+    /// <param name="_useList">The use list.</param>
+    /// <returns>The append result.</returns>
     public void Append(object text)
     {
         string textString = text.ToString()!;
@@ -121,11 +160,20 @@ public class TextBuilderDC
         Append(textString);
     }
 
+    /// <summary>
+    /// Append line.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The append line result.</returns>
     public void AppendLine()
     {
         Append(Environment.NewLine);
     }
 
+    /// <summary>
+    /// Append line.
+    /// </summary>
+    /// <param name="text">The text.</param>
     public void AppendLine(string text)
     {
         if (_useList)
@@ -139,6 +187,11 @@ public class TextBuilderDC
         }
     }
 
+    /// <summary>
+    /// To string.
+    /// </summary>
+    /// <param name="_useList">The use list.</param>
+    /// <returns>The to string result.</returns>
     public override string ToString()
     {
         if (_useList)

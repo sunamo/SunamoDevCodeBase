@@ -1,6 +1,9 @@
 namespace SunamoDevCode;
 
 // Helper class for System.Windows controls shortcuts and names
+/// <summary>
+/// Represents the system windows controls type.
+/// </summary>
 public static class SystemWindowsControls
 {
     private static readonly Type type = typeof(SystemWindowsControls);
@@ -10,6 +13,9 @@ public static class SystemWindowsControls
 
     private static Dictionary<string, string>? controlsShortLong;
 
+    /// <summary>
+    /// Init controls short long.
+    /// </summary>
     public static void InitControlsShortLong()
     {
         Init();
@@ -24,6 +30,9 @@ public static class SystemWindowsControls
         }
     }
 
+    /// <summary>
+    /// Init.
+    /// </summary>
     public static void Init()
     {
         if (!s_initialized)
@@ -34,6 +43,11 @@ public static class SystemWindowsControls
         }
     }
 
+    /// <summary>
+    /// Starting with shortcut of control.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The starting with shortcut of control result.</returns>
     public static bool StartingWithShortcutOfControl(string text)
     {
         foreach (var item in s_controls)
@@ -45,6 +59,11 @@ public static class SystemWindowsControls
         return false;
     }
 
+    /// <summary>
+    /// Is shortcut of control.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The is shortcut of control result.</returns>
     public static bool IsShortcutOfControl(string text)
     {
         foreach (var item in s_controls)
@@ -55,5 +74,10 @@ public static class SystemWindowsControls
         return false;
     }
 
+    /// <summary>
+    /// Is name of control.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>The is name of control result.</returns>
     public static bool IsNameOfControl(string text) => s_controls.ContainsKey(text);
 }
