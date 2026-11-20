@@ -7,7 +7,6 @@ internal class MayExcHelper
         if (exception is not null)
         {
             Console.WriteLine(exception);
-            //ThisApp.Error( result.exception);
             return true;
         }
 

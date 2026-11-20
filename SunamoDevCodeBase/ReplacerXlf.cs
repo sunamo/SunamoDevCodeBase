@@ -13,7 +13,6 @@ public class ReplacerXlf
 
         values = AllLists.htmlEntitiesFullNames.Values.ToList();
 
-        //values.Sort(SunamoComparer.StringLength.Instance.Desc);
         CA.Prepend("_", values);
     }
 
@@ -33,15 +32,6 @@ public class ReplacerXlf
         return text;
     }
 
-    //public static void AddKeys(List<string> k)
-    //{
-    //}
 
-    //public static void AddKeysXlfKeysIds()
-    //{
-    //    List<string> ids = null; // XlfResourcesH.PathToXlfSunamo(Langs.en);
-    //    var ids2 = new List<string>(ids);
 
-    //    AddKeys(ids);
-    //}
 }

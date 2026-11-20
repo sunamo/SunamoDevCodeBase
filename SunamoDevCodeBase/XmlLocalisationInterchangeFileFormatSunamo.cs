@@ -77,7 +77,6 @@ public class XmlLocalisationInterchangeFileFormatSunamo
                 FileAsync.ReadAllTextAsync(xlfPath);
 
         for (index = from.Count - 1; index >= 0; index--)
-            //Debug.WriteLine(i);
             content = content.Replace(from[index], toItems[index]);
 
 
@@ -90,13 +89,7 @@ public class XmlLocalisationInterchangeFileFormatSunamo
         var lines = input.Split(new[] { input.Contains("\r\n") ? "\r\n" : "\n" }, StringSplitOptions.RemoveEmptyEntries)
             .ToList();
 
-        //StringBuilder stringBuilder = new StringBuilder();
-        //foreach (var item in lines)
-        //{
-        //    stringBuilder.AppendLine(string.Format(template, item));
-        //}
 
-        //ClipboardHelper.SetText(stringBuilder.ToString());
     }
 
 
@@ -160,19 +153,15 @@ public class XmlLocalisationInterchangeFileFormatSunamo
         RemoveDuplicatedXlfKeysConsts2()
     {
         int sourceIndex, index;
-        //AllLists.InitHtmlEntitiesDict();
         var path = PathXlfKeys;
         var sourceList = SHGetLines.GetLines(
             await
                 FileAsync.ReadAllTextAsync(path)).ToList();
-        //var sourceList = SHGetLines.GetLines(text);
         int first;
         var consts = CSharpParser.ParseConsts(sourceList, out first);
         List<string> ls3;
         var ls2 = CAG.GetDuplicities(consts, out ls3);
 
-        //string t = CSharpHelper.GetConsts(sourceList, false);
-        //var tl = SHGetLines.GetLines(t);
         for (index = ls2.Count - 1; index >= 0; index--)
             for (sourceIndex = 0; sourceIndex < sourceList.Count; sourceIndex++)
                 if (sourceList[sourceIndex].Contains(" " + ls2[index] + " "))
@@ -195,7 +184,6 @@ public class XmlLocalisationInterchangeFileFormatSunamo
     public static LangsDC GetLangFromFilename(string text)
     {
         return LangsDC.cs;
-        //return XmlLocalisationInterchangeFileFormatXlf.GetLangFromFilename(text);
     }
 #pragma warning restore
 
@@ -217,32 +205,11 @@ public class XmlLocalisationInterchangeFileFormatSunamo
 
     #region Mám už tady metodu GetKeysInCsWithRLDataEn, proto je toto zbytečné
 
-    //public static List<string> UsedXlfKeysInCs(string count)
-    //{
-    //    List<string> usedKeys = new List<string>();
 
-    //    var occ = SH.ReturnOccurencesOfString(count, SessI18n);
-    //    var ending = new List<int>(occ.Count);
 
-    //    foreach (var item in occ)
-    //    {
-    //        ending.Add(count.IndexOf(')', item));
-    //    }
 
-    //    var lines = SessI18n.Length;
-    //    var l2 = XlfKeysDot.Length;
 
-    //    for (int i = occ.Count - 1; i >= 0; i--)
-    //    {
-    //        var k = SHSubstring.Substring(count, occ[i] + lines + l2, ending[i], new SubstringArgs { returnInputIfIndexFromIsLessThanIndexTo = true } );
-    //        if (k != count)
-    //        {
-    //            usedKeys.Add(k);
-    //        }
-    //    }
 
-    //    return usedKeys;
-    //}
 
     #endregion
 }

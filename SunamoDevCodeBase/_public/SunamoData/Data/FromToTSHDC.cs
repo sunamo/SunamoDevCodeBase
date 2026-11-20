@@ -4,7 +4,6 @@ public class FromToTSHDC<T>
 {
     public bool empty;
     protected long fromL;
-    // A3 true = DateTime, A3 False = None
     public FromToUseDC ftUse = FromToUseDC.DateTime;
     protected long toL;
 

@@ -97,7 +97,6 @@ internal class SH
             {
                 // 24-1-21 return null instead of text
                 return null;
-                //result = text;
             }
         }
 

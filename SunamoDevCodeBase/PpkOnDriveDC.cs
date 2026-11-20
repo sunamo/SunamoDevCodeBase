@@ -19,16 +19,6 @@ public class PpkOnDriveDC : PpkOnDriveDevCodeBase<string>
     }
 
     //public static PpkOnDrive WroteOnDrive
-    //{
-    //    get
-    //    {
-    //        if (wroteOnDrive == null)
-    //        {
-    //            wroteOnDrive = new PpkOnDrive(AppData.Instance.GetFile(AppFolders.Logs, "WrittenFiles.txt"));
-    //        }
-    //        return wroteOnDrive;
-    //    }
-    //}
     public async Task Load(string filePath)
     {
         args.File = filePath;
@@ -44,10 +34,8 @@ public class PpkOnDriveDC : PpkOnDriveDevCodeBase<string>
             AddRange(SHGetLines.GetLines(
                 await
                     FileAsync.ReadAllTextAsync(args.File)));
-            //CA.RemoveStringsEmpty2(this);
             if (RemoveDuplicates)
             {
-                //CAG.RemoveDuplicitiesList<string>(this);
                 var data = this.ToList();
                 await Clear();
                 data = data.Distinct().ToList();

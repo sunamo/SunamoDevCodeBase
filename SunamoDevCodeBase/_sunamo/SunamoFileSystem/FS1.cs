@@ -6,7 +6,6 @@ internal partial class FS
 {
     internal static bool CopyMoveFilePrepare(ref string item, ref string fileTo, FileMoveCollisionOptionDC collisionOption)
     {
-        //var fileTo = fileTo2.ToString();
         item = @"\\?\" + item;
         MakeUncLongPath(ref fileTo);
         CreateUpfoldersPsysicallyUnlessThere(fileTo);
@@ -91,7 +90,6 @@ internal partial class FS
             }
             catch (Exception)
             {
-            //ThisApp.Error(item + " : " + ex.Message);
             }
     }
 
@@ -114,7 +112,6 @@ internal partial class FS
                 }
 
                 // Používá se i ve web, musel bych tam includovat spoustu metod
-                //PH.ShutdownProcessWhichOccupyFileHandleExe(sourceFile);
                 try
                 {
                     File.Copy(sourceFile, destinationFile, true);
@@ -205,7 +202,6 @@ internal partial class FS
             stringBuilder.Append(jumpUp);
         stringBuilder.Append(file);
         return stringBuilder.ToString();
-    //return SHJoin.JoinTimes(i, jumpUp) + file;
     }
 
     internal static string MascFromExtension(string extension = "*")
@@ -237,7 +233,6 @@ internal partial class FS
     internal static void CreateFoldersPsysicallyUnlessThere(string path)
     {
         ThrowEx.IsNullOrEmpty(nameof(path), path);
-        //ThrowEx.IsNotWindowsPathFormat(nameof(path), path);
         if (Directory.Exists(path))
         {
             return;

@@ -22,7 +22,6 @@ internal class SHSplit
                     else
                         paddedResult.Add("");
                 return paddedResult;
-                //return new string[] { text[0] };
             }
 
             return null;

@@ -8,7 +8,6 @@ namespace SunamoDevCode._sunamo.SunamoLang.SunamoI18N;
 //#else
 //SunamoLang
 //#endif
-//;
 internal class Translate
 {
     private static readonly Type type = typeof(Translate);

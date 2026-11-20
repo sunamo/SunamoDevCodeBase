@@ -102,7 +102,6 @@ internal partial class FS
 
     internal static string InsertBetweenFileNameAndExtension(string originalPath, string textToInsert)
     {
-        //return InsertBetweenFileNameAndExtension<string, string>(originalPath, textToInsert, null);
         // Cesta by se zde hodila kvůli FS.CiStorageFile
         // nicméně StorageFolder nevím zda se používá, takže to bude umět i bez toho
         var originalPathString = originalPath.ToString();
@@ -139,7 +138,6 @@ internal partial class FS
 
     internal static List<string> GetFiles(string folder, string mask, SearchOption searchOption /*, GetFilesArgsDC getFilesArgs = null*/)
     {
-        //ThrowEx.NotImplementedMethod();
         return Directory.GetFiles(folder, mask, searchOption).ToList();
     }
 
