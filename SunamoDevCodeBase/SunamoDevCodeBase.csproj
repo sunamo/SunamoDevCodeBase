@@ -20,6 +20,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <EmbedAllSources>true</EmbedAllSources>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageTags>sunamo;dotnet;dev;code;base</PackageTags>
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>SunamoDevCode</RootNamespace>
